@@ -1,0 +1,51 @@
+spring:
+  config:
+    import: optional:env[.env]
+
+  datasource:
+    url: URL_DATABASE_POSTGRES
+    username: USERNAME_DATABASE
+    password: PASSWORD_DATABASE
+    driver-class-name: org.postgresql.Driver
+  graphql:
+    schema:
+      locations:
+        -none
+        #- clas
+  data:
+    redis:
+      host: REDIS_HOST
+      port: 6379
+      repositories:
+        enabled: true
+    mongodb:
+      uri: URL_DATABASE_MONGODB
+      database: NAME_DATABASE_MONGODB
+  mail:
+    host: MAIL_HOST_DATA
+    port: 587
+    username: MAIL_USERNAME
+    password: MAIL_PASSWORD
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+jwt:
+  JWT_SECRET: JWT_SECRET_TOKEN
+  JWT_ACTIVATION: JWT_ACTIVATION_TOKEN
+  JWT_UPDATE_PROFILE: JWT_UPDATE_PROFILE_TOKEN
+  issuer: VehicleBucket
+
+server:
+  port: 8080
+app:
+  baseUrl: http://localhost:8080
+
+logging:
+  level:
+    root: info
+    org.springframework: info
+    org.springframework.beans.factory.support: DEBUG

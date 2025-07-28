@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: Kendaraan API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080
+  
+paths:
+  /api-Kendaraan/all:
+    get:
+      summary: Ambil semua data kendaraan
+      tags:
+        - Kendaraan
+      responses:
+        "200":
+          description: Daftar kendaraan berhasil diambil
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ResponseDataKendaraan"
+  /api-Kendaraan/CreateKendaraan:
+    post:
+      summary: Create New Kendaraan
+      tags:
+        - Kendaraan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateKendaraanRequest"
+      responses:
+        "200":
+          description: Success Save Data Kendaraan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseDataKendaraan"
+
+components:
+  schemas:
+    CreateKendaraanRequest:
+      type: object
+      required:
+        - noRegistrasi
+        - namaPemilik
+        - alamat
+        - merekKendaraan
+        - tahunPembuatan
+        - kapasitasSilinder
+        - warnaKendaraan
+        - BahanBakar
+      properties:
+        noRegistrasi:
+          type: string
+          example: "B1234XYZ"
+        namaPemilik:
+          type: string
+          example: "Suntaso"
+        alamat:
+          type: string
+          example: "Jl. Tanah Abang"
+        merekKendaraan:
+          type: string
+          example: "Toyota"
+        tahunPembuatan:
+          type: integer
+          example: 2000
+        kapasitasSilinder:
+          type: integer
+          example: 190
+        warnaKendaraan:
+          type: string
+          example: "Merah"
+        BahanBakar:
+          type: string
+          example: "Solar"
+    ResponseDataKendaraan:
+      type: object
+      properties:
+        noRegistrasi:
+          type: string
+          example: "B1234XYZ"
+        namaPemilik:
+          type: string
+          example: "Suntaso"
+        alamat:
+          type: string
+          example: "Jl. Tanah Abang"
+        merekKendaraan:
+          type: string
+          example: "Toyota"
+        tahunPembuatan:
+          type: integer
+          example: 2000
+        kapasitasSilinder:
+          type: integer
+          example: 190
+        warnaKendaraan:
+          type: string
+          example: "Merah"
+        BahanBakar:
+          type: string
+          example: "Solar"
