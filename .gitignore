@@ -1,5 +1,7 @@
 HELP.md
 run-dev.bat
+logs/
+src/test/resources/application.yml
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -19,9 +21,6 @@ target/
 *.iml
 *.ipr
 
-
-/src/main/resources/application.yml
-/src/main/resources/application.properties
 
 ### VS Code ###
 .vscode/
